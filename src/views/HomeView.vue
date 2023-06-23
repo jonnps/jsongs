@@ -8,7 +8,7 @@ import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid';
 import useModalStore from '@/stores/modal';
 
 import MainSidebar from '@/components/MainSidebar.vue';
-import AuthModal from '@/components/AuthModal.vue';
+import AuthModal from '@/components/AuthModal/AuthModal.vue';
 
 const navigation = [{ name: 'Musics', href: '#', icon: MusicalNoteIcon, current: true }];
 
