@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
 export default defineStore('modal', {
   state: () => ({
@@ -6,7 +6,7 @@ export default defineStore('modal', {
   }),
   actions: {
     toggle() {
-      this.isOpen = !this.isOpen
+      this.isOpen = !this.isOpen;
     }
   }
-})
+});

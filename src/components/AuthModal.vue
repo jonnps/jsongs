@@ -1,17 +1,27 @@
 <script setup>
-import { ref } from 'vue'
-import { XMarkIcon } from '@heroicons/vue/20/solid'
-import useModalStore from '@/stores/modal'
+import { ref } from 'vue';
+import { XMarkIcon } from '@heroicons/vue/20/solid';
+import useModalStore from '@/stores/modal';
 
-const modal = useModalStore()
-const activeTab = ref('login')
+const modal = useModalStore();
+const activeTab = ref('login');
+
+const schema = {
+  name: 'required|min:3|max:100|alphaSpaces',
+  email: 'required|min:3|max:100|email',
+  password: 'required|min:8',
+  confirm_password: 'passwordsMismatch:@password',
+  tos: 'required'
+};
+
+const register = (values) => {
+  console.log(values);
+};
 </script>
 
 <template>
   <div class="fixed z-50 inset-0 overflow-y-auto" id="modal" :class="{ hidden: !modal.isOpen }">
-    <div
-      class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
-    >
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
       <div class="fixed inset-0 transition-opacity">
         <div class="absolute inset-0 bg-gray-800 opacity-75"></div>
       </div>
@@ -22,18 +32,14 @@ const activeTab = ref('login')
       <div
         class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
       >
-        <!-- Add margin if you want to see some of the overlay behind the modal-->
         <div class="py-4 text-left px-6">
-          <!--Title-->
           <div class="flex justify-between items-center pb-4">
             <p class="text-2xl font-bold">Your Account</p>
-            <!-- Modal Close Button -->
             <div class="modal-close cursor-pointer z-50">
               <XMarkIcon class="h-6 w-6" @click.prevent="modal.toggle()" />
             </div>
           </div>
 
-          <!-- Tabs -->
           <ul class="flex flex-wrap mb-4">
             <li class="flex-auto text-center">
               <a
@@ -61,7 +67,6 @@ const activeTab = ref('login')
             </li>
           </ul>
 
-          <!-- Login Form -->
           <form v-show="activeTab === 'login'">
             <!-- Email -->
             <div class="mb-3">
@@ -88,67 +93,60 @@ const activeTab = ref('login')
               Submit
             </button>
           </form>
-          <!-- Registration Form -->
-          <form v-show="activeTab === 'register'">
-            <!-- Name -->
+
+          <VeeForm v-show="activeTab === 'register'" :validation-schema="schema" @submit="register">
             <div class="mb-3">
               <label class="inline-block mb-2">Name</label>
-              <input
+              <VeeField
                 type="text"
+                name="name"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 placeholder="Enter Name"
               />
+              <ErrorMessage class="text-red-500" name="name" />
             </div>
-            <!-- Email -->
+
             <div class="mb-3">
               <label class="inline-block mb-2">Email</label>
-              <input
+              <VeeField
                 type="email"
+                name="email"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 placeholder="Enter Email"
               />
+              <ErrorMessage class="text-red-500" name="email" />
             </div>
-            <!-- Age -->
-            <div class="mb-3">
-              <label class="inline-block mb-2">Age</label>
-              <input
-                type="number"
-                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-              />
-            </div>
-            <!-- Password -->
+
             <div class="mb-3">
               <label class="inline-block mb-2">Password</label>
-              <input
-                type="password"
-                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-                placeholder="Password"
-              />
+              <VeeField name="password" :bails="false" v-slot="{ field, errors }">
+                <input
+                  class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
+                  placeholder="Password"
+                  type="password"
+                  v-bind="field"
+                />
+                <div v-for="error in errors" class="text-red-600" :key="error">
+                  {{ error }}
+                </div>
+              </VeeField>
             </div>
-            <!-- Confirm Password -->
+
             <div class="mb-3">
               <label class="inline-block mb-2">Confirm Password</label>
-              <input
+              <VeeField
                 type="password"
+                name="confirm_password"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 placeholder="Confirm Password"
               />
+              <ErrorMessage class="text-red-500" name="confirm_password" />
             </div>
-            <!-- Country -->
-            <div class="mb-3">
-              <label class="inline-block mb-2">Country</label>
-              <select
-                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-              >
-                <option value="USA">USA</option>
-                <option value="Mexico">Mexico</option>
-                <option value="Germany">Germany</option>
-              </select>
-            </div>
-            <!-- TOS -->
+
             <div class="mb-3 pl-6">
-              <input type="checkbox" class="w-4 h-4 float-left -ml-6 mt-1 rounded" />
+              <VeeField type="checkbox" name="tos" class="w-4 h-4 float-left -ml-6 mt-1 rounded" value="1" />
               <label class="inline-block">Accept terms of service</label>
+              <ErrorMessage class="text-red-500" name="tos" />
             </div>
             <button
               type="submit"
@@ -156,7 +154,7 @@ const activeTab = ref('login')
             >
               Submit
             </button>
-          </form>
+          </VeeForm>
         </div>
       </div>
     </div>

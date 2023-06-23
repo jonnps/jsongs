@@ -1,23 +1,16 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-import {
-  Dialog,
-  DialogPanel,
-  Menu,
-  MenuButton,
-  TransitionChild,
-  TransitionRoot
-} from '@headlessui/vue'
-import { Bars3Icon, Cog6ToothIcon, MusicalNoteIcon, XMarkIcon } from '@heroicons/vue/24/outline'
-import { MagnifyingGlassIcon, PlayIcon } from '@heroicons/vue/20/solid'
+import { Dialog, DialogPanel, Menu, MenuButton, TransitionChild, TransitionRoot } from '@headlessui/vue';
+import { Bars3Icon, MusicalNoteIcon, XMarkIcon } from '@heroicons/vue/24/outline';
+import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid';
 
-import useModalStore from '@/stores/modal'
+import useModalStore from '@/stores/modal';
 
-import MainSidebar from '@/components/MainSidebar.vue'
-import AuthModal from '@/components/AuthModal.vue'
+import MainSidebar from '@/components/MainSidebar.vue';
+import AuthModal from '@/components/AuthModal.vue';
 
-const navigation = [{ name: 'Musics', href: '#', icon: MusicalNoteIcon, current: true }]
+const navigation = [{ name: 'Musics', href: '#', icon: MusicalNoteIcon, current: true }];
 
 const musics = [
   {
@@ -36,11 +29,11 @@ const musics = [
     artist: 'Random Artist',
     name: 'Music Name'
   }
-]
+];
 
-const sidebarOpen = ref(false)
+const sidebarOpen = ref(false);
 
-const modal = useModalStore()
+const modal = useModalStore();
 </script>
 
 <template>
@@ -86,9 +79,7 @@ const modal = useModalStore()
               </div>
             </TransitionChild>
             <!-- Sidebar component, swap this element with another sidebar if you like -->
-            <div
-              class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4 ring-1 ring-white/10"
-            >
+            <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4 ring-1 ring-white/10">
               <div class="flex h-16 shrink-0 justify-center items-center text-white">
                 <span class="text-2xl font-bold">JSongs</span>
               </div>
@@ -128,11 +119,7 @@ const modal = useModalStore()
     <div
       class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8"
     >
-      <button
-        type="button"
-        class="-m-2.5 p-2.5 text-gray-700 lg:hidden"
-        @click="sidebarOpen = true"
-      >
+      <button type="button" class="-m-2.5 p-2.5 text-gray-700 lg:hidden" @click="sidebarOpen = true">
         <Bars3Icon class="h-6 w-6" aria-hidden="true" />
       </button>
 
