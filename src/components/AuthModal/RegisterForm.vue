@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import useUserStore from '@/stores/user';
 
 const registerSchema = {
   name: 'required|min:3|max:100|alphaSpaces',
@@ -14,14 +15,23 @@ const regShowAlert = ref(false);
 const regAlertVariant = ref('bg-blue-500');
 const regAlertMessage = ref('Please, wait! Your account is being created.');
 
-const register = (values) => {
+const register = async (values) => {
   regShowAlert.value = true;
   regSubmitting.value = true;
   regAlertVariant.value = 'bg-blue-500';
   regAlertMessage.value = 'Please, wait! Your account is being created.';
 
-  regAlertVariant.value = 'bg-green-500';
-  regAlertMessage.value = 'Your account has been created successfully!';
+  try {
+    const userStore = useUserStore();
+    await userStore.register(values);
+  } catch (error) {
+    regSubmitting.value = false;
+    regAlertVariant.value = 'bg-red-500';
+    regAlertMessage.value = 'An unexpected error occurred. Please try again later.';
+    return;
+  }
+
+  window.location.reload();
 };
 </script>
 

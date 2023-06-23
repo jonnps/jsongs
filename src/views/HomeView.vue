@@ -6,6 +6,7 @@ import { Bars3Icon, MusicalNoteIcon, XMarkIcon } from '@heroicons/vue/24/outline
 import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid';
 
 import useModalStore from '@/stores/modal';
+import useUserStore from '@/stores/user';
 
 import MainSidebar from '@/components/MainSidebar.vue';
 import AuthModal from '@/components/AuthModal/AuthModal.vue';
@@ -34,6 +35,7 @@ const musics = [
 const sidebarOpen = ref(false);
 
 const modal = useModalStore();
+const user = useUserStore();
 </script>
 
 <template>
@@ -144,11 +146,16 @@ const modal = useModalStore();
         <div class="flex items-center gap-x-4 lg:gap-x-6">
           <!-- Profile dropdown -->
           <Menu as="div" class="relative">
-            <MenuButton class="-m-1.5 flex items-center p-1.5" @click.prevent="modal.toggle()">
+            <MenuButton v-if="!user.userLoggedIn" class="-m-1.5 flex items-center p-1.5" @click.prevent="modal.toggle">
               <span class="hidden lg:flex lg:items-center">
                 <span class="ml-4 text-sm font-semibold leading-6 text-gray-900" aria-hidden="true"
                   >Login / Register</span
                 >
+              </span>
+            </MenuButton>
+            <MenuButton v-else class="-m-1.5 flex items-center p-1.5" @click.prevent="user.signOut">
+              <span class="hidden lg:flex lg:items-center">
+                <span class="ml-4 text-sm font-semibold leading-6 text-gray-900" aria-hidden="true">Logout</span>
               </span>
             </MenuButton>
           </Menu>

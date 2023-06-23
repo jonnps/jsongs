@@ -1,15 +1,39 @@
 <script setup>
+import { ref } from 'vue';
+import useUserStore from '@/stores/user';
+
+const loginSubmitting = ref(false);
+const loginShowAlert = ref(false);
+const loginAlertVariant = ref('bg-blue-500');
+const loginAlertMessage = ref('Please, wait! We are logging you in.');
+
 const loginSchema = {
   email: 'required|min:3|max:100|email',
   password: 'required|min:8'
 };
 
-const login = (values) => {
-  console.log(values);
+const login = async (values) => {
+  loginSubmitting.value = true;
+  loginShowAlert.value = true;
+
+  try {
+    const userStore = useUserStore();
+    await userStore.authenticate(values);
+  } catch (error) {
+    loginSubmitting.value = false;
+    loginAlertVariant.value = 'bg-red-500';
+    loginAlertMessage.value = 'Invalid login details';
+    return;
+  }
+
+  window.location.reload();
 };
 </script>
 
 <template>
+  <div v-if="loginShowAlert" class="text-white text-center font-bold p-4 rounded mb-4" :class="loginAlertVariant">
+    {{ loginAlertMessage }}
+  </div>
   <VeeForm :validation-schema="loginSchema" @submit="login">
     <!-- Email -->
     <div class="mb-3">
