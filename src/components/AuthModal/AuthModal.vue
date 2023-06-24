@@ -27,7 +27,7 @@ const activeTab = ref('login');
           <div class="flex justify-between items-center pb-4">
             <p class="text-2xl font-bold">Your Account</p>
             <div class="modal-close cursor-pointer z-50">
-              <XMarkIcon class="h-6 w-6" @click.prevent="modal.toggle()" />
+              <XMarkIcon class="h-6 w-6" @click.prevent="modal.hide" />
             </div>
           </div>
 

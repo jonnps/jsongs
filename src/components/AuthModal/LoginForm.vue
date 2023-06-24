@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import router from '@/router';
 import useUserStore from '@/stores/user';
+import useModalStore from '@/stores/modal';
 
 const loginSubmitting = ref(false);
 const loginShowAlert = ref(false);
@@ -26,7 +28,15 @@ const login = async (values) => {
     return;
   }
 
-  window.location.reload();
+  const modalStore = useModalStore();
+  if (modalStore.redirectPath) {
+    loginSubmitting.value = false;
+    loginShowAlert.value = false;
+    modalStore.hide();
+    router.push({ path: modalStore.redirectPath });
+  } else {
+    window.location.reload();
+  }
 };
 </script>
 

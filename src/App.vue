@@ -1,7 +1,14 @@
 <script setup>
-import { RouterView } from 'vue-router';
+import { computed } from 'vue';
+import { RouterView, useRoute } from 'vue-router';
+
 import useUserStore from '@/stores/user';
 import { auth } from '@/includes/firebase';
+
+import BaseLayout from '@/components/BaseLayout.vue';
+
+const route = useRoute();
+const isNotFound = computed(() => route.name === 'not-found');
 
 const userStore = useUserStore();
 
@@ -11,5 +18,11 @@ if (auth.currentUser) {
 </script>
 
 <template>
-  <RouterView />
+  <template v-if="isNotFound">
+    <RouterView />
+  </template>
+
+  <BaseLayout v-else>
+    <RouterView />
+  </BaseLayout>
 </template>

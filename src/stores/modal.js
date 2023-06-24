@@ -2,11 +2,18 @@ import { defineStore } from 'pinia';
 
 export default defineStore('modal', {
   state: () => ({
-    isOpen: false
+    isOpen: false,
+    redirectPath: null
   }),
   actions: {
-    toggle() {
-      this.isOpen = !this.isOpen;
+    show(path = null) {
+      this.isOpen = true;
+      if (path) {
+        this.redirectPath = path;
+      }
+    },
+    hide() {
+      this.isOpen = false;
     }
   }
 });
