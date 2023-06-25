@@ -9,15 +9,20 @@ const routes = [
     component: () => import('@/pages/HomeView.vue')
   },
   {
+    path: '/about',
+    name: 'about',
+    component: () => import('@/pages/AboutView.vue')
+  },
+  {
     path: '/manage',
     name: 'manage',
     component: () => import('@/pages/Manage/ManageView.vue'),
     meta: { requiresAuth: true }
   },
   {
-    path: '/about',
-    name: 'about',
-    component: () => import('@/pages/AboutView.vue')
+    name: 'song',
+    path: '/song/:id',
+    component: () => import('@/pages/SongView.vue')
   },
   {
     path: '/:catchAll(.*)*',

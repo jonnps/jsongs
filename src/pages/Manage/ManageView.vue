@@ -39,7 +39,7 @@ onBeforeRouteLeave((to, from, next) => {
 });
 </script>
 <template>
-  <section class="container mx-auto mt-6">
+  <section class="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
     <div class="md:grid md:grid-cols-3 md:gap-4">
       <div class="col-span-1">
         <UploadBox :add-song="addSong" />

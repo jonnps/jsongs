@@ -10,6 +10,7 @@ import useUserStore from '@/stores/user';
 
 import MainSidebar from '@/components/MainSidebar.vue';
 import AuthModal from '@/components/AuthModal/AuthModal.vue';
+import AudioPlayer from '@/components/AudioPlayer/AudioPlayer.vue';
 
 const navigation = [
   { name: 'Songs', to: '/', icon: MusicalNoteIcon, current: true },
@@ -71,11 +72,13 @@ const user = useUserStore();
       </div>
     </div>
 
-    <main class="py-10">
-      <div class="px-4 sm:px-6 lg:px-8 relative">
+    <main>
+      <div class="relative">
         <slot></slot>
       </div>
     </main>
+
+    <AudioPlayer />
   </div>
 
   <AuthModal />
