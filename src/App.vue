@@ -5,7 +5,7 @@ import { RouterView, useRoute } from 'vue-router';
 import useUserStore from '@/stores/user';
 import { auth } from '@/includes/firebase';
 
-import BaseLayout from '@/components/BaseLayout.vue';
+import DefaultLayout from '@/layout/DefaultLayout.vue';
 
 const route = useRoute();
 const isNotFound = computed(() => route.name === 'not-found');
@@ -22,7 +22,7 @@ if (auth.currentUser) {
     <RouterView />
   </template>
 
-  <BaseLayout v-else>
+  <DefaultLayout v-else>
     <RouterView />
-  </BaseLayout>
+  </DefaultLayout>
 </template>

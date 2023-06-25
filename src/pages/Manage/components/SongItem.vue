@@ -43,15 +43,12 @@ const edit = async (values) => {
   alertVariant.value = 'bg-blue-500';
   alertMessage.value = 'Please, wait! Updating song information...';
 
-  console.log(props.song);
-
   try {
     await songsCollection.doc(props.song.docID).update(values);
   } catch (error) {
     inSubmission.value = false;
     alertVariant.value = 'bg-red-500';
     alertMessage.value = 'Oops! Something went wrong. Please, try again later.';
-    console.log(error);
     return;
   }
 
@@ -100,7 +97,7 @@ const deleteSong = async () => {
             name="modified_name"
             class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
             placeholder="Enter Song Title"
-            @input="props.updateUnsavedFlag(true)"
+            @input="updateUnsavedFlag(true)"
           />
           <ErrorMessage class="text-red-600" name="modified_name" />
         </div>
@@ -111,7 +108,7 @@ const deleteSong = async () => {
             name="genre"
             class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
             placeholder="Enter Genre"
-            @input="props.updateUnsavedFlag(true)"
+            @input="updateUnsavedFlag(true)"
           />
           <ErrorMessage class="text-red-600" name="genre" />
         </div>

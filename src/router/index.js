@@ -6,23 +6,23 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('@/views/HomeView.vue')
+    component: () => import('@/pages/HomeView.vue')
   },
   {
     path: '/manage',
     name: 'manage',
-    component: () => import('@/views/ManageView.vue'),
+    component: () => import('@/pages/Manage/ManageView.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/about',
     name: 'about',
-    component: () => import('@/views/AboutView.vue')
+    component: () => import('@/pages/AboutView.vue')
   },
   {
     path: '/:catchAll(.*)*',
     name: 'not-found',
-    component: () => import('@/views/NotFound.vue')
+    component: () => import('@/pages/NotFound.vue')
   }
 ];
 

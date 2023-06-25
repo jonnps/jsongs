@@ -4,14 +4,14 @@ import { onBeforeRouteLeave } from 'vue-router';
 import { songsCollection, auth } from '@/includes/firebase';
 import { PencilSquareIcon, TrashIcon } from '@heroicons/vue/20/solid';
 
-import UploadBox from '@/components/UploadBox.vue';
-import SongItem from '@/components/SongItem.vue';
+import UploadBox from './components/UploadBox.vue';
+import SongItem from './components/SongItem.vue';
 
 const songs = ref([]);
 const unsavedFlag = ref(false);
 
 const addSong = (document) => {
-  const song = { ...document.data(), docID: document.id, showForm: false };
+  const song = { ...document.data(), docID: document.id };
   songs.value.push(song);
 };
 
@@ -35,12 +35,7 @@ onMounted(async () => {
 });
 
 onBeforeRouteLeave((to, from, next) => {
-  if (!unsavedFlag.value) {
-    next();
-  } else {
-    const leave = window.confirm('You have unsaved changes. Are you sure you want to leave?');
-    next(leave);
-  }
+  next(!unsavedFlag.value || window.confirm('You have unsaved changes. Are you sure you want to leave?'));
 });
 </script>
 <template>
