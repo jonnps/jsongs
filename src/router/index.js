@@ -32,7 +32,6 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  console.log('happened');
   const userStore = useUserStore();
 
   if (!to.meta.requiresAuth || (to.meta.requiresAuth && userStore.userLoggedIn)) {
