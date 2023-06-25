@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+
 import { PencilSquareIcon, TrashIcon } from '@heroicons/vue/20/solid';
 import { songsCollection, storage } from '@/includes/firebase';
 
@@ -26,6 +28,8 @@ const props = defineProps({
   }
 });
 
+const { t } = useI18n();
+
 const inSubmission = ref(false);
 const showAlert = ref(false);
 const alertVariant = ref('');
@@ -47,7 +51,7 @@ const edit = async (values) => {
     await songsCollection.doc(props.song.docID).update(values);
   } catch (error) {
     inSubmission.value = false;
-    alertVariant.value = 'bg-red-500';
+    alertVariant.value = 'bg-red-50';
     alertMessage.value = 'Oops! Something went wrong. Please, try again later.';
     return;
   }
@@ -86,34 +90,34 @@ const deleteSong = async () => {
       </button>
     </div>
     <div v-show="showForm">
-      <div v-if="showAlert" class="text-white text-center font-bold p-4 mb-4" :class="alertVariant">
+      <div v-if="showAlert" class="text-sm font-medium p-4 mb-4" :class="alertVariant">
         {{ alertMessage }}
       </div>
       <VeeForm :validation-schema="schema" :initial-values="song" @submit="edit">
         <div class="mb-3">
-          <label class="inline-block mb-2">Song Title</label>
+          <label class="inline-block mb-2">{{ t('song.songTitle') }}</label>
           <VeeField
             type="text"
             name="modified_name"
             class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-            placeholder="Enter Song Title"
+            :placeholder="t('manager.enterSongTitle')"
             @input="updateUnsavedFlag(true)"
           />
           <ErrorMessage class="text-red-600" name="modified_name" />
         </div>
         <div class="mb-3">
-          <label class="inline-block mb-2">Genre</label>
+          <label class="inline-block mb-2">{{ t('song.genre') }}</label>
           <VeeField
             type="text"
             name="genre"
             class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-            placeholder="Enter Genre"
+            :placeholder="t('manager.enterGenre')"
             @input="updateUnsavedFlag(true)"
           />
           <ErrorMessage class="text-red-600" name="genre" />
         </div>
         <button type="submit" class="py-1.5 px-3 rounded text-white bg-green-600" :disabled="inSubmission">
-          Submit
+          {{ t('song.submit') }}
         </button>
         <button
           type="button"
@@ -121,7 +125,7 @@ const deleteSong = async () => {
           :disabled="inSubmission"
           @click.prevent="showForm = false"
         >
-          Go Back
+          {{ t('song.cancel') }}
         </button>
       </VeeForm>
     </div>

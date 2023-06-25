@@ -1,8 +1,9 @@
 <script setup>
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 import { Menu, MenuButton } from '@headlessui/vue';
-import { Bars3Icon, MusicalNoteIcon } from '@heroicons/vue/24/outline';
+import { Bars3Icon } from '@heroicons/vue/24/outline';
 import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid';
 
 import useModalStore from '@/stores/modal';
@@ -12,10 +13,7 @@ import MainSidebar from '@/components/MainSidebar.vue';
 import AuthModal from '@/components/AuthModal/AuthModal.vue';
 import AudioPlayer from '@/components/AudioPlayer/AudioPlayer.vue';
 
-const navigation = [
-  { name: 'Songs', to: '/', icon: MusicalNoteIcon, current: true },
-  { name: 'Manage', to: '/manage', icon: Bars3Icon, current: false }
-];
+const { t } = useI18n();
 
 const sidebarOpen = ref(false);
 
@@ -25,7 +23,7 @@ const user = useUserStore();
 
 <template>
   <!-- Static sidebar for desktop -->
-  <MainSidebar :navigation="navigation" :sidebar-open="sidebarOpen" @close-sidebar="sidebarOpen = false" />
+  <MainSidebar :sidebar-open="sidebarOpen" @close-sidebar="sidebarOpen = false" />
 
   <div class="lg:pl-72 h-full relative">
     <div
@@ -48,7 +46,7 @@ const user = useUserStore();
           <input
             id="search-field"
             class="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm"
-            placeholder="Search..."
+            :placeholder="t('header.search')"
             type="search"
             name="search"
           />
@@ -57,9 +55,9 @@ const user = useUserStore();
           <Menu as="div" class="relative">
             <MenuButton v-if="!user.userLoggedIn" class="-m-1.5 flex items-center p-1.5" @click.prevent="modal.show">
               <span class="hidden lg:flex lg:items-center">
-                <span class="ml-4 text-sm font-semibold leading-6 text-gray-900" aria-hidden="true"
-                  >Login / Register</span
-                >
+                <span class="ml-4 text-sm font-semibold leading-6 text-gray-900" aria-hidden="true">{{
+                  t('header.loginRegister')
+                }}</span>
               </span>
             </MenuButton>
             <MenuButton v-else class="-m-1.5 flex items-center p-1.5" @click.prevent="user.signOut">

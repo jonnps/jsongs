@@ -1,0 +1,53 @@
+{
+  "header": {
+    "loginRegister": "Login / Cadastro",
+    "search": "Pesquisar"
+  },
+  "sidebar": {
+    "songs": "Músicas",
+    "manage": "Gerenciar"
+  },
+  "auth": {
+    "dontHaveAccount": "Não tem uma conta?",
+    "signUpHere": "Cadastre-se aqui",
+    "emailAddress": "Endereço de e-mail",
+    "enterYourEmail": "Digite seu endereço de e-mail",
+    "password": "Senha",
+    "enterYourPassword": "Digite sua senha",
+    "confirmPassword": "Confirme a senha",
+    "enterYourPasswordAgain": "Digite sua senha novamente",
+    "logIn": "Entrar",
+    "pleaseWaitLogginYouIn": "Por favor, aguarde, logando.",
+    "invalidLoginDetails": "Detalhes de login inválidos",
+    "name": "Nome",
+    "enterYourName": "Digite seu nome",
+    "iAcceptThe": "Eu aceito os",
+    "terms": "termos",
+    "and": "e",
+    "privacyPolicy": "política de privacidade",
+    "signUp": "Cadastre-se",
+    "alreadyHaveAnAccount": "Já tem uma conta?",
+    "signInHere": "Entre aqui"
+  },
+
+  "register": {
+    "accept": "Eu aceito JSongs {0}",
+    "tos": "termos de serviço."
+  },
+  "manager": {
+    "mySongs": "Minhas músicas",
+    "songTitle": "Título da Música",
+    "enterSongTitle": "Digite o título da música",
+    "genre": "Gênero",
+    "enterGenre": "Digite o gênero",
+    "youHaveUnsavedChanges": "Você tem alterações não salvas, tem certeza que quer sair?"
+  },
+  "song": {
+    "commentCount": "Nenhum comentário | Comentário (1) | Comentários ({count})",
+    "songTitle": "Título da Música",
+    "genre": "Gênero",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "dragYourMp3FilesHere": "Arraste seus arquivos mp3 aqui"
+  }
+}

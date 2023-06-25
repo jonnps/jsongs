@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import { ErrorMessage } from 'vee-validate';
 import { PlayIcon } from '@heroicons/vue/20/solid';
 import { songsCollection, commentsCollection, auth } from '@/includes/firebase';
@@ -11,6 +12,7 @@ const userStore = useUserStore();
 const playerStore = usePlayerStore();
 
 const route = useRoute();
+const { t } = useI18n();
 
 const song = ref({});
 const comments = ref([]);
@@ -93,9 +95,11 @@ onMounted(async () => {
   <section class="bg-white">
     <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center mb-6">
-        <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Comments ({{ comments.length }})</h2>
+        <h2 class="text-lg lg:text-2xl font-bold text-gray-900">
+          {{ t('song.commentCount', { count: comments.length }) }}
+        </h2>
       </div>
-      <div v-if="commentShowAlert" class="text-white text-center font-bold p-4 mb-4" :class="commentAlertVariant">
+      <div v-if="commentShowAlert" class="text-sm font-medium p-4 mb-4" :class="commentAlertVariant">
         {{ commentAlertMessage }}
       </div>
       <VeeForm v-if="userStore.userLoggedIn" :validation-schema="schema" class="mb-6" @submit="addComment">

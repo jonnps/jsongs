@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onBeforeUnmount } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { XMarkIcon, CheckIcon } from '@heroicons/vue/20/solid';
 import { storage, auth, songsCollection } from '@/includes/firebase';
 
@@ -9,6 +10,8 @@ const props = defineProps({
     required: true
   }
 });
+
+const { t } = useI18n();
 
 const isDraggOver = ref(false);
 const uploads = ref([]);
@@ -98,7 +101,7 @@ onBeforeUnmount(() => {
         @drop.prevent.stop="upload($event)"
         @click.prevent="$refs.fileInput.click()"
       >
-        <h5>Drop your mp3 files here</h5>
+        <h5>{{ t('song.dragYourMp3FilesHere') }}</h5>
       </div>
       <input ref="fileInput" type="file" class="mt-5" accept=".mp3" multiple @change="upload($event)" />
       <hr class="my-6" />

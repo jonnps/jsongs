@@ -1,0 +1,47 @@
+{
+  "header": {
+    "loginRegister": "Login / Register"
+  },
+  "sidebar": {
+    "songs": "Songs",
+    "manage": "Manage"
+  },
+  "auth": {
+    "dontHaveAccount": "Don't have an account?",
+    "signUpHere": "Sign up here",
+    "emailAddress": "Email Address",
+    "enterYourEmail": "Enter your email address",
+    "password": "Password",
+    "enterYourPassword": "Enter your password",
+    "confirmPassword": "Confirm Password",
+    "enterYourPasswordAgain": "Enter your password again",
+    "logIn": "Log In",
+    "pleaseWaitLogginYouIn": "Please wait, logging you in...",
+    "invalidLoginDetails": "Invalid login details",
+    "name": "Name",
+    "enterYourName": "Enter your name",
+    "iAcceptThe": "I accept the",
+    "terms": "terms",
+    "and": "and",
+    "privacyPolicy": "privacy policy",
+    "signUp": "Sign Up",
+    "alreadyHaveAnAccount": "Already have an account?",
+    "signInHere": "Sign in here"
+  },
+  "manager": {
+    "mySongs": "My Songs",
+    "songTitle": "Song Title",
+    "enterSongTitle": "Enter song title",
+    "genre": "Genre",
+    "enterGenre": "Enter genre",
+    "youHaveUnsavedChanges": "You have unsaved changes. Are you sure you want to leave?'"
+  },
+  "song": {
+    "commentCount": "No comments | Comment (1) | Comments ({count})",
+    "songTitle": "Song Title",
+    "genre": "Genre",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "dragYourMp3FilesHere": "Drag your mp3 files here"
+  }
+}
