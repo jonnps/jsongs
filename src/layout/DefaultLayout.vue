@@ -12,7 +12,7 @@ import MainSidebar from '@/components/MainSidebar.vue';
 import AuthModal from '@/components/AuthModal/AuthModal.vue';
 
 const navigation = [
-  { name: 'Musics', to: '/', icon: MusicalNoteIcon, current: true },
+  { name: 'Songs', to: '/', icon: MusicalNoteIcon, current: true },
   { name: 'Manage', to: '/manage', icon: Bars3Icon, current: false }
 ];
 
