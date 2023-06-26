@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { ErrorMessage } from 'vee-validate';
-import { PlayIcon } from '@heroicons/vue/20/solid';
+import { PlayIcon, PauseIcon } from '@heroicons/vue/20/solid';
 import { songsCollection, commentsCollection, auth } from '@/includes/firebase';
 import useUserStore from '@/stores/user';
 import usePlayerStore from '@/stores/player';
@@ -77,14 +77,34 @@ onMounted(async () => {
   <section class="w-full mb-8 py-14 text-center text-white relative">
     <div class="absolute inset-0 w-full h-full box-border bg-contain music-bg bg-gray-950"></div>
     <div class="container mx-auto flex items-center px-4 sm:px-6 lg:px-8">
-      <!-- Play/Pause Button -->
-      <button
-        type="button"
-        class="z-10 h-24 w-24 text-3xl bg-white text-gray-950 rounded-full focus:outline-none"
-        @click.prevent="playerStore.newSong(song)"
-      >
-        <PlayIcon class="h-12 w-12 mx-auto" />
-      </button>
+      <template v-if="song.original_name !== playerStore.currentSong.original_name">
+        <button
+          type="button"
+          class="z-10 h-24 w-24 text-3xl bg-white text-gray-950 rounded-full focus:outline-none"
+          @click.prevent="playerStore.newSong(song)"
+        >
+          <PlayIcon class="h-12 w-12 mx-auto" />
+        </button>
+      </template>
+      <template v-else-if="!playerStore.playing">
+        <button
+          type="button"
+          class="z-10 h-24 w-24 text-3xl bg-white text-gray-950 rounded-full focus:outline-none"
+          @click.prevent="playerStore.toggleAudio"
+        >
+          <PlayIcon class="h-12 w-12 mx-auto" />
+        </button>
+      </template>
+      <template v-else>
+        <button
+          type="button"
+          class="z-10 h-24 w-24 text-3xl bg-white text-gray-950 rounded-full focus:outline-none"
+          @click.prevent="playerStore.toggleAudio"
+        >
+          <PauseIcon class="h-12 w-12 mx-auto" />
+        </button>
+      </template>
+
       <div class="z-10 text-left ml-8">
         <div class="text-3xl font-bold">{{ song.modified_name }}</div>
         <div>{{ song.genre }}</div>
