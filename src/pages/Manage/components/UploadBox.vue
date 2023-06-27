@@ -26,6 +26,19 @@ const upload = ($event) => {
       return;
     }
 
+    if (!navigator.onLine) {
+      uploads.value.push({
+        task: {},
+        currentProgress: 100,
+        name: file.name,
+        variant: 'bg-red-500',
+        textClass: 'text-red-400',
+        error: true
+      });
+
+      return;
+    }
+
     const storageRef = storage.ref();
     const songsRef = storageRef.child(`songs/${file.name}`);
     const task = songsRef.put(file);

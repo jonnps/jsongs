@@ -12,7 +12,7 @@ const { t } = useI18n();
 
 const loginSubmitting = ref(false);
 const loginShowAlert = ref(false);
-const loginAlertVariant = ref('bg-blue-500');
+const loginAlertVariant = ref('bg-blue-50');
 const loginAlertMessage = ref('');
 
 const loginSchema = {
@@ -23,6 +23,7 @@ const loginSchema = {
 const login = async (values) => {
   loginSubmitting.value = true;
   loginShowAlert.value = true;
+  loginAlertVariant.value = 'bg-blue-50 text-blue-800';
   loginAlertMessage.value = t('auth.pleaseWaitLogginYouIn');
 
   try {
@@ -31,7 +32,7 @@ const login = async (values) => {
   } catch (error) {
     loginSubmitting.value = false;
     loginAlertVariant.value = 'bg-red-50 text-red-800';
-    loginAlertMessage.value = t('invalidLoginDetails');
+    loginAlertMessage.value = t('auth.invalidLoginDetails');
     return;
   }
 

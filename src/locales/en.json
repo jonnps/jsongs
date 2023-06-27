@@ -1,6 +1,7 @@
 {
   "header": {
-    "loginRegister": "Login / Register"
+    "loginRegister": "Login / Register",
+    "search": "Search"
   },
   "sidebar": {
     "songs": "Songs",
