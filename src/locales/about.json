@@ -1,6 +1,7 @@
 {
   "en": {
     "description": "This project was built using the skills and knowledge gained from an in-depth Vue.js course. The course covered a wide range of topics including Vue fundamentals, advanced components, state management with Pinia, form validation, authentication, routing, file uploading, internationalization, Progressive Web Apps, optimizations, deployment, and testing. The focus of the course was on understanding core concepts, rather than just coding along. This project is a practical application of the principles and techniques learned throughout the course.",
+    "toolsUsed": "Tools Used",
     "tools": {
       "Vitest": {
         "description": "A unit testing tool designed for Vite."
@@ -43,6 +44,7 @@
   },
   "ptBR": {
     "description": "Este projeto foi desenvolvido utilizando habilidades e conhecimentos adquiridos em um curso aprofundado de Vue.js. O curso abrangeu uma ampla gama de tópicos, incluindo fundamentos do Vue, componentes avançados, gerenciamento de estado com Pinia, validação de formulários, autenticação, roteamento, upload de arquivos, internacionalização, Progressive Web Apps, otimizações, implantação e testes. O foco do curso foi em entender os conceitos centrais, em vez de apenas codificar acompanhando. Este projeto é uma aplicação prática dos princípios e técnicas aprendidos ao longo do curso.",
+    "toolsUsed": "Ferramentas Utilizadas",
     "tools": {
       "Vite": {
         "description": "Uma build tool que fornece um servidor de desenvolvimento rápido, aproveitando os native ES modules no navegador."

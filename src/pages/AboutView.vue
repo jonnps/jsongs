@@ -72,7 +72,7 @@ const tools = [
         </p>
       </div>
       <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-8 lg:max-w-none">
-        <h2 class="text-2xl font-bold tracking-tight text-gray-900 mb-8">Tools used</h2>
+        <h2 class="text-2xl font-bold tracking-tight text-gray-900 mb-8">{{ t('about.toolsUsed') }}</h2>
         <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
           <div v-for="tool in tools" :key="tool.name" class="flex flex-col">
             <dt class="flex items-center text-base gap-3 font-semibold leading-7 text-gray-900 mb-4">
