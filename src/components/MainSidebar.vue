@@ -93,6 +93,14 @@ const changeLocale = (newLocale) => {
                     </ul>
                   </li>
                 </ul>
+                <div class="mt-auto flex justify-center gap-3 text-white">
+                  <button @click="changeLocale('pt')">
+                    <img class="h-8 w-8" src="/assets/icons/lang/ptBR_icon.svg" />
+                  </button>
+                  <button @click="changeLocale('en')">
+                    <img class="h-8 w-8" src="/assets/icons/lang/en_icon.svg" />
+                  </button>
+                </div>
               </nav>
             </div>
           </DialogPanel>
