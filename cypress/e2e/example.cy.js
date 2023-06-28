@@ -1,8 +1,8 @@
 // https://on.cypress.io/api
 
-describe('My First Test', () => {
+describe('Sanity Test', () => {
   it('visits the app root url', () => {
-    cy.visit('/')
-    cy.contains('h1', 'You did it!')
-  })
-})
+    cy.visit('/');
+    cy.contains('.text-2xl.font-bold', 'JSongs');
+  });
+});
