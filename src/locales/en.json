@@ -5,7 +5,8 @@
   },
   "sidebar": {
     "songs": "Songs",
-    "manage": "Manage"
+    "manage": "Manage",
+    "about": "About"
   },
   "auth": {
     "dontHaveAccount": "Don't have an account?",
@@ -35,7 +36,9 @@
     "enterSongTitle": "Enter song title",
     "genre": "Genre",
     "enterGenre": "Enter genre",
-    "youHaveUnsavedChanges": "You have unsaved changes. Are you sure you want to leave?'"
+    "youHaveUnsavedChanges": "You have unsaved changes. Are you sure you want to leave?'",
+    "edit": "Edit",
+    "delete": "Delete"
   },
   "song": {
     "commentCount": "No comments | Comment (1) | Comments ({count})",

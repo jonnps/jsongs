@@ -1,0 +1,83 @@
+{
+  "en": {
+    "description": "This project was built using the skills and knowledge gained from an in-depth Vue.js course. The course covered a wide range of topics including Vue fundamentals, advanced components, state management with Pinia, form validation, authentication, routing, file uploading, internationalization, Progressive Web Apps, optimizations, deployment, and testing. The focus of the course was on understanding core concepts, rather than just coding along. This project is a practical application of the principles and techniques learned throughout the course.",
+    "tools": {
+      "Vitest": {
+        "description": "A unit testing tool designed for Vite."
+      },
+      "Vite": {
+        "description": "An opinionated web dev build tool that serves your code via native ES modules."
+      },
+      "Vuejs": {
+        "description": "An open-source JavaScript framework for building user interfaces and single-page applications."
+      },
+      "Pinia": {
+        "description": "State management library for Vue.js, meant as a replacement for Vuex in Vue 3."
+      },
+      "Vue Router": {
+        "description": "The official router for Vue.js, used for building single-page applications with navigation."
+      },
+      "Vue I18n": {
+        "description": "An internationalization plugin for Vue.js."
+      },
+      "Firebase": {
+        "description": "A platform developed by Google for creating mobile and web applications."
+      },
+      "Vee-Validate": {
+        "description": "A template-based validation framework for Vue.js applications."
+      },
+      "Headless UI": {
+        "description": "Completely unstyled UI components to make it easy to build accessible, customizable, and headless UI components."
+      },
+      "Tailwind CSS": {
+        "description": "A utility-first CSS framework for rapidly building custom user interfaces."
+      },
+      "Workbox": {
+        "description": "A set of libraries and modules that make it easy to cache assets and work with service workers."
+      },
+      "Cypress": {
+        "description": "An end-to-end testing tool for modern web applications."
+      }
+    },
+    "learnmore": "Learn more"
+  },
+  "ptBR": {
+    "description": "Este projeto foi desenvolvido utilizando habilidades e conhecimentos adquiridos em um curso aprofundado de Vue.js. O curso abrangeu uma ampla gama de tópicos, incluindo fundamentos do Vue, componentes avançados, gerenciamento de estado com Pinia, validação de formulários, autenticação, roteamento, upload de arquivos, internacionalização, Progressive Web Apps, otimizações, implantação e testes. O foco do curso foi em entender os conceitos centrais, em vez de apenas codificar acompanhando. Este projeto é uma aplicação prática dos princípios e técnicas aprendidos ao longo do curso.",
+    "tools": {
+      "Vite": {
+        "description": "Uma build tool que fornece um servidor de desenvolvimento rápido, aproveitando os native ES modules no navegador."
+      },
+      "Vuejs": {
+        "description": "Um framework JavaScript progressivo para construir interfaces e single-page applications."
+      },
+      "Pinia": {
+        "description": "Uma bublioteca de gerenciamento de estados para Vue.js, que atua como substituto do Vuex no Vue 3."
+      },
+      "Firebase": {
+        "description": "Plataforma do Google para criar mobile e web apps, com recursos como autenticação e banco de dados em tempo real."
+      },
+      "Vee-Validate": {
+        "description": "Uma biblioteca de validação de formulários para Vue.js que permite a validação de maneira simples e flexível."
+      },
+      "Headless UI": {
+        "description": "Componentes de UI 'headless' para facilitar a construção de componentes acessíveis e customizáveis."
+      },
+      "Tailwind CSS": {
+        "description": "Um framework CSS focado em utility-first para construir rapidamente designs personalizados."
+      },
+      "Vue I18n": {
+        "description": "Plugin de internacionalização para Vue.js, permite a tradução de texto e formatação de números."
+      },
+      "Cypress": {
+        "description": "Ferramenta de teste end-to-end para aplicações web modernas."
+      },
+      "Workbox": {
+        "description": "Libraries e módulos que facilitam o cache de assets e outros trabalhos de service workers."
+      },
+      "Vitest": {
+        "description": "Ferramenta de teste para Vite, oferece uma experiência rápida e integrada para testar projetos Vue.js."
+      }
+    },
+    "learnmore": "Saiba mais"
+  }
+}
