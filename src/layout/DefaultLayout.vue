@@ -70,7 +70,7 @@ const user = useUserStore();
       </div>
     </div>
 
-    <main>
+    <main class="pb-40 sm:pb-20">
       <div class="relative">
         <slot></slot>
       </div>

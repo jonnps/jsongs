@@ -41,7 +41,9 @@
     "enterSongTitle": "Digite o título da música",
     "genre": "Gênero",
     "enterGenre": "Digite o gênero",
-    "youHaveUnsavedChanges": "Você tem alterações não salvas, tem certeza que quer sair?"
+    "youHaveUnsavedChanges": "Você tem alterações não salvas, tem certeza que quer sair?",
+    "edit": "Editar",
+    "delete": "Excluir"
   },
   "song": {
     "commentCount": "Nenhum comentário | Comentário (1) | Comentários ({count})",

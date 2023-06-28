@@ -74,9 +74,9 @@ onMounted(async () => {
 });
 </script>
 <template>
-  <section class="w-full mb-8 py-14 text-center text-white relative">
+  <section class="w-full mb-8 py-8 sm:py-14 text-center text-white relative">
     <div class="absolute inset-0 w-full h-full box-border bg-contain music-bg bg-gray-950"></div>
-    <div class="container mx-auto flex items-center px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto flex flex-col gap-3 sm:gap-0 sm:flex-row items-center px-4 sm:px-6 lg:px-8">
       <template v-if="song.original_name !== playerStore.currentSong.original_name">
         <button
           type="button"
@@ -105,8 +105,8 @@ onMounted(async () => {
         </button>
       </template>
 
-      <div class="z-10 text-left ml-8">
-        <div class="text-3xl font-bold">{{ song.modified_name }}</div>
+      <div class="z-10 text-left sm:ml-8">
+        <div class="sm:text-3xl text-2xl font-bold text-center sm:text-left">{{ song.modified_name }}</div>
         <div>{{ song.genre }}</div>
       </div>
     </div>
@@ -123,7 +123,7 @@ onMounted(async () => {
         {{ commentAlertMessage }}
       </div>
       <VeeForm v-if="userStore.userLoggedIn" :validation-schema="schema" class="mb-6" @submit="addComment">
-        <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
+        <div class="py-2 px-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
           <label for="comment" class="sr-only">Your comment</label>
           <VeeField
             as="textarea"
@@ -132,11 +132,13 @@ onMounted(async () => {
             class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:placeholder-gray-400"
             placeholder="Write a comment..."
           ></VeeField>
-          <ErrorMessage name="comment" class="text-red-500" />
+        </div>
+        <div>
+          <ErrorMessage name="comment" class="text-red-500 text-xs mt-4" />
         </div>
         <button
           type="submit"
-          class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-800"
+          class="mt-4 inline-flex items-center py-2.5 px-4 font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-800"
           :disabled="commentInSubmission"
         >
           Post comment

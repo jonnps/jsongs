@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue';
 
-import { XMarkIcon, MusicalNoteIcon, FolderIcon } from '@heroicons/vue/24/outline';
+import { XMarkIcon, MusicalNoteIcon, FolderIcon, InformationCircleIcon } from '@heroicons/vue/24/outline';
 
 const { t, locale } = useI18n();
 
@@ -19,7 +19,8 @@ defineEmits(['closeSidebar']);
 
 const navigation = computed(() => [
   { name: t('sidebar.songs'), to: '/', icon: MusicalNoteIcon, current: true },
-  { name: t('sidebar.manage'), to: '/manage', icon: FolderIcon, current: false }
+  { name: t('sidebar.manage'), to: '/manage', icon: FolderIcon, current: false },
+  { name: t('sidebar.about'), to: '/about', icon: InformationCircleIcon, current: false }
 ]);
 
 const changeLocale = (newLocale) => {
@@ -124,10 +125,10 @@ const changeLocale = (newLocale) => {
         </ul>
         <div class="mt-auto flex justify-center gap-3 text-white">
           <button @click="changeLocale('pt')">
-            <img class="h-8 w-8" src="/assets/ptBR_icon.svg" />
+            <img class="h-8 w-8" src="/assets/icons/lang/ptBR_icon.svg" />
           </button>
           <button @click="changeLocale('en')">
-            <img class="h-8 w-8" src="/assets/en_icon.svg" />
+            <img class="h-8 w-8" src="/assets/icons/lang/en_icon.svg" />
           </button>
         </div>
       </nav>
