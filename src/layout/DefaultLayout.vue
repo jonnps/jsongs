@@ -4,11 +4,11 @@ import { useI18n } from 'vue-i18n';
 
 import { Menu, MenuButton } from '@headlessui/vue';
 import { Bars3Icon } from '@heroicons/vue/24/outline';
-import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid';
 
 import useModalStore from '@/stores/modal';
 import useUserStore from '@/stores/user';
 
+import SearchBar from '@/components/SearchBar/SearchBar.vue';
 import MainSidebar from '@/components/MainSidebar.vue';
 import AuthModal from '@/components/AuthModal/AuthModal.vue';
 import AudioPlayer from '@/components/AudioPlayer/AudioPlayer.vue';
@@ -37,20 +37,7 @@ const user = useUserStore();
       <div class="h-6 w-px bg-gray-900/10 lg:hidden" aria-hidden="true" />
 
       <div class="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
-        <form class="relative flex flex-1" action="#" method="GET">
-          <label for="search-field" class="sr-only">Search</label>
-          <MagnifyingGlassIcon
-            class="pointer-events-none absolute inset-y-0 left-0 h-full w-5 text-gray-400"
-            aria-hidden="true"
-          />
-          <input
-            id="search-field"
-            class="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm"
-            :placeholder="t('header.search')"
-            type="search"
-            name="search"
-          />
-        </form>
+        <SearchBar />
         <div class="flex items-center gap-x-4 lg:gap-x-6">
           <Menu as="div" class="relative">
             <MenuButton v-if="!user.userLoggedIn" class="-m-1.5 flex items-center p-1.5" @click.prevent="modal.show">

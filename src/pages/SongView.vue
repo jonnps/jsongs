@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { onBeforeRouteUpdate, useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { ErrorMessage } from 'vee-validate';
 import { PlayIcon, PauseIcon } from '@heroicons/vue/20/solid';
@@ -71,6 +71,15 @@ onMounted(async () => {
 
   song.value = docSnapshot.data();
   getComments();
+});
+
+onBeforeRouteUpdate(async (to, from, next) => {
+  const docSnapshot = await songsCollection.doc(to.params.id).get();
+
+  song.value = docSnapshot.data();
+  getComments();
+
+  next();
 });
 </script>
 <template>
